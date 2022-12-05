@@ -1,0 +1,17 @@
+mixin card(data)
+  each value in data
+    -let colorBackground = (value["cardColor"] == "violet") ? 'card_violet': ''
+    -let colorFont = (value["cardColor"] == "violet") ? '_white' : ''
+    -let buttonBackground = colorFont
+    .card(class= colorBackground)
+      p(class= `card__title${colorFont}`)= value["title"]
+      .card__value
+        p(class= `card__sign${colorFont}`) $
+        p(class= `card__price card__price${colorFont}`)= value["price"]
+      hr
+      ul.card__list
+        each item in value["options"]
+          li(class= `card__item${colorFont}`)= item
+          hr
+      a.card__link(href="#")
+        div(class= `card__button${buttonBackground}`) Learn more

@@ -1,0 +1,67 @@
+$linearGradient: linear-gradient(hsl(236, 72%, 79%) 0%, hsl(237, 63%, 64%) 100%);
+$blueGrayLightExtra: hsl(240, 78%, 98%);
+$blueGrayLight: hsl(234, 14%, 74%);
+$blueGray: hsl(233, 13%, 49%);
+$blueGrayDark: hsl(232, 13%, 33%);
+
+.toggle {
+  background-color: $linearGradient;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 1rem;
+
+  &__active {
+    font-weight: 700;
+  }
+
+  &__label {
+    cursor: pointer;
+  }
+
+  &__monthly, &__yearly {
+    color: $blueGrayLight;
+  }
+
+  &__input {
+    position: absolute;
+    appearance: none;
+    background: transparent;
+    height: 1.25rem;
+    width: 2.5rem;
+    cursor: pointer;
+    // border: 1px solid $blueGrayDark;
+    border-radius: 20px;
+    background: $linearGradient;
+
+    &:checked {
+      border-color: $blueGrayDark;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 50%;
+      top: 4px;
+      left: 3px;
+      background: #fff;
+      transition: .25s;
+    }
+
+    &:checked:before {
+      left: 24px;
+      background: #fff;
+    }
+  }
+
+  &__monthly {
+    padding-right: 0.5rem;
+  }
+
+  &__yearly {
+    padding-left: 3rem;
+  }
+}
